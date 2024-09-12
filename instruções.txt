@@ -1,0 +1,32 @@
+Ativar o  ambiente virtual:
+
+-> procImgLt\Scripts\activate
+
+Executar o código: 
+
+-> python processador_imagens.py
+
+Documentação:
+-> Bibliotecas utilizadas:
+    PIL (Pillow): Manipulação de imagens:
+        Image.open(): Abre uma imagem;
+        img.resize(): Redimensiona a imagem;
+        img.convert("L"): Converte para escala de cinza (preto e branco);
+        img.filter(ImageFilter.EDGE_ENHANCE): Aplica o filtro de aumento de contraste;
+        img.save(): Salva a imagem processada.
+
+    os: Manipulação de arquivos:
+        os.makedirs(): Cria diretórios, se não existirem;
+        os.path.join(): Junta partes de um caminho de arquivo;
+        os.path.basename(): Extrai o nome do arquivo de um caminho;
+        os.listdir(): Lista os arquivos em um diretório.
+
+    time: calcular o tempo:
+        time.time(): Retorna o tempo atual em segundos.
+
+    threading: Criar e gerenciar threads:
+        threading.Thread(): Cria um novo objeto de thread;
+        thread.start(): Inicia a execução da thread;
+        thread.join(): Aguarda a thread terminar sua execução.
+
+Discentes: Carlos Eduardo e Ana Carolina
