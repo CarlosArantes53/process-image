@@ -13,14 +13,15 @@ def process_image(image_path, output_folder):
         img = img.resize((800, 600))
         #Tarefas - 1. Redimensionamento: Redimensionar todas as imagens para uma resolução específica (por exemplo, 800x600 pixels).
 
-        img_bw = img.convert("L") #preto e branco
-        img_contrast = img.filter(ImageFilter.EDGE_ENHANCE) #aumento de contraste
-        #Tarefas - 2. Aplicação de Filtros: Aplicar pelo menos dois filtros diferentes em cada imagem (por exemplo, preto e branco, aumento de contraste, etc.).
-        
         base_name = os.path.basename(image_path)
+        img_bw = img.convert("L") #preto e branco
         img_bw.save(os.path.join(output_folder, f"bw_{base_name}"))
+        img_contrast = img.filter(ImageFilter.EDGE_ENHANCE) #aumento de contraste
         img_contrast.save(os.path.join(output_folder, f"contrast_{base_name}"))
+  
+        #Tarefas - 2. Aplicação de Filtros: Aplicar pelo menos dois filtros diferentes em cada imagem (por exemplo, preto e branco, aumento de contraste, etc.).
         #Tarefas - 3. Salvar as imagens processadas em uma nova pasta.
+        
 
 def process_images_sequential(input_folder, output_folder):
     #Implementação - Versão Sequencia - 1. Implemente uma versão que processe as imagens uma por uma.
@@ -59,6 +60,6 @@ if __name__ == "__main__":
     process_images_sequential(input_folder, output_folder)
     #Implementação - Versão Concorrente - 1. Implemente uma versão que utilize threads para processar múltiplas imagens simultaneamente.
 
-    for num_threads in [2, 4, 8]:
+    for num_threads in [2, 4, 8, 16 ,128, 1024]:
         process_images_concurrent(input_folder, output_folder, num_threads) 
     #Implementação - Versão Concorrente - 2. Experimente com diferentes números de threads (por exemplo, 2, 4, 8) e compare os resultados.
