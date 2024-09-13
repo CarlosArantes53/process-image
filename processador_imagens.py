@@ -18,7 +18,18 @@ def process_image(image_path, output_folder):
         img_bw.save(os.path.join(output_folder, f"bw_{base_name}"))
         img_contrast = img.filter(ImageFilter.EDGE_ENHANCE) #aumento de contraste
         img_contrast.save(os.path.join(output_folder, f"contrast_{base_name}"))
-  
+        img_blur = img.filter(ImageFilter.BLUR)#desfoque
+        img_blur.save(os.path.join(output_folder, f"blur_{base_name}"))
+        img_sharpen = img.filter(ImageFilter.SHARPEN)#nitidez
+        img_sharpen.save(os.path.join(output_folder, f"sharpen_{base_name}"))
+        img_emboss = img.filter(ImageFilter.EMBOSS)#relevo
+        img_emboss.save(os.path.join(output_folder, f"emboss_{base_name}"))
+        img_edges = img.filter(ImageFilter.FIND_EDGES)#bordas
+        img_edges.save(os.path.join(output_folder, f"edges_{base_name}"))
+        img_smooth = img.filter(ImageFilter.SMOOTH)#contornos
+        img_smooth.save(os.path.join(output_folder, f"smooth_{base_name}"))
+        img_detail = img.filter(ImageFilter.DETAIL)#detalhes
+        img_detail.save(os.path.join(output_folder, f"detail_{base_name}"))
         #Tarefas - 2. Aplicação de Filtros: Aplicar pelo menos dois filtros diferentes em cada imagem (por exemplo, preto e branco, aumento de contraste, etc.).
         #Tarefas - 3. Salvar as imagens processadas em uma nova pasta.
         
